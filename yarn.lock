@@ -131,10 +131,10 @@
     ora "5.4.1"
     rxjs "6.6.7"
 
-"@angular/animations@^14.2.0":
-  version "14.3.0"
-  resolved "https://registry.yarnpkg.com/@angular/animations/-/animations-14.3.0.tgz#71e22cc1bdfcefc7d8d38cc3bb300b768940f816"
-  integrity sha512-QoBcIKy1ZiU+4qJsAh5Ls20BupWiXiZzKb0s6L9/dntPt5Msr4Ao289XR2P6O1L+kTsCprH9Kt41zyGQ/bkRqg==
+"@angular/animations@14.2.0":
+  version "14.2.0"
+  resolved "https://registry.yarnpkg.com/@angular/animations/-/animations-14.2.0.tgz#9ad9cef59521516ad7ab9d3855f138eab71be354"
+  integrity sha512-T54F5NvX0XMj6L7hdqYYORFjY6EckOWaK96bF9QqJLKwIRViCEGR5YzaHGhQaAipvUJ+kEwN+bnRBJWOaNbmUw==
   dependencies:
     tslib "^2.3.0"
 
@@ -5241,6 +5241,18 @@ pretty-bytes@^5.3.0:
   version "5.6.0"
   resolved "https://registry.yarnpkg.com/pretty-bytes/-/pretty-bytes-5.6.0.tgz#356256f643804773c82f64723fe78c92c62beaeb"
   integrity sha512-FFw039TmrBqFK8ma/7OL3sDz/VytdtJr044/QUJtH0wK9lb9jLq9tJyIxUwtQJHwar2BqtiA4iCWSwo9JLkzFg==
+
+primeicons@6.0.1:
+  version "6.0.1"
+  resolved "https://registry.yarnpkg.com/primeicons/-/primeicons-6.0.1.tgz#431fa7c79825934eefd62087d8e1faa6a9e376ad"
+  integrity sha512-KDeO94CbWI4pKsPnYpA1FPjo79EsY9I+M8ywoPBSf9XMXoe/0crjbUK7jcQEDHuc0ZMRIZsxH3TYLv4TUtHmAA==
+
+primeng@14.0.0:
+  version "14.0.0"
+  resolved "https://registry.yarnpkg.com/primeng/-/primeng-14.0.0.tgz#6b99a1a1fa0d02b1e6072851c4c7fd6df2a9aef5"
+  integrity sha512-FXDrm0YmgVTPkOfiFNWwanKyvnpgIjsdlMaZrSN1sK3dJTymwvLz/0ah0ctqFgvPnp5Q78bFEomCnvxW1AO15w==
+  dependencies:
+    tslib "^2.3.0"
 
 proc-log@^2.0.0, proc-log@^2.0.1:
   version "2.0.1"
