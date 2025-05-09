@@ -1,0 +1,19 @@
+<!-- Standalone Checkbox -->
+<ng-container *ngIf="!name">
+  <p-checkbox
+    [(ngModel)]="checked"
+    [label]="label"
+    [binary]="true"
+    inputId="binary"
+  ></p-checkbox>
+</ng-container>
+
+<!-- Grouped Checkbox -->
+<ng-container *ngIf="name">
+  <p-checkbox
+    [name]="name"
+    [value]="value"
+    [label]="label"
+    [(ngModel)]="checked"
+  ></p-checkbox>
+</ng-container>

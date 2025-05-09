@@ -1,3 +1,18 @@
 
-<p-dropdown [options]="cities" [(ngModel)]="selectedCity" optionLabel="name"></p-dropdown>
+<!--<p-dropdown [options]="cities" [(ngModel)]="selectedCity" optionLabel="name"></p-dropdown>-->
+
+  <app-button   label="click" [styleClass]="'p-button-sm p-button'" [onClick]="handleClick" ></app-button>
+
 <router-outlet></router-outlet>
+
+<app-card>
+  <app-checkbox [(checked)]="checkboxvalue"  label="tested"></app-checkbox>
+
+  <app-checkbox name="groupname" value="val2" label="value 2" [(checked)]="selectedValues" ></app-checkbox>
+  <app-checkbox name="groupname" value="val1" label="value 1" [(checked)]="selectedValues" ></app-checkbox>
+  <!--<app-checkbox name="groupname" value="val2" label="value 2"  ></app-checkbox>-->
+</app-card>
+
+<h2>checked value in top level : {{checkboxvalue}}</h2>
+<h2>group checked box {{selectedValues | json}}</h2>
+

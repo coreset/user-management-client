@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { PrimeNGConfig } from 'primeng/api';
 
 interface City {
     name: string,
@@ -14,19 +15,14 @@ interface City {
 export class AppComponent {
   title = 'user-management-client';
 
-    cities: City[];
+  checkboxvalue: boolean = false;
+  constructor(private readonly primegnConfig: PrimeNGConfig) {
+    this.primegnConfig.ripple = true;
+  }
 
-    selectedCity: City | undefined;
+  handleClick():void{
+    console.log("button layer clicked ! ");
+  }
 
-    constructor() {
-        this.cities = [
-            {name: 'New York', code: 'NY', inactive: false},
-            {name: 'Rome', code: 'RM', inactive: true},
-            {name: 'London', code: 'LDN', inactive: false},
-            {name: 'Istanbul', code: 'IST', inactive: true},
-            {name: 'Paris', code: 'PRS', inactive: false}
-        ];
-
-        //this.selectedCity = undefined;
-    }
+  selectedValues: string[] = ["val2"];
 }

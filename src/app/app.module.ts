@@ -5,7 +5,8 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { PrimeNgModule } from './primeng.module';
+import { AtomsModule } from './components/atoms/atoms.module';
+import { PrimeNgModule } from './shared/modules/primeng.module';
 
 @NgModule({
   declarations: [
@@ -17,7 +18,8 @@ import { PrimeNgModule } from './primeng.module';
     AppRoutingModule,
     ReactiveFormsModule,
     FormsModule,
-    PrimeNgModule,
+    AtomsModule,
+    PrimeNgModule
   ],
   providers: [],
   bootstrap: [AppComponent]

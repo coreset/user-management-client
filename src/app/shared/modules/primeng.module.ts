@@ -11,30 +11,42 @@ import { ToastModule } from 'primeng/toast';
 import { TooltipModule } from 'primeng/tooltip';
 import { ConfirmDialogModule } from 'primeng/confirmdialog';
 import { CalendarModule } from 'primeng/calendar';
+import { CheckboxModule } from 'primeng/checkbox';
+import { RadioButtonModule } from 'primeng/radiobutton';
+import { CardModule } from 'primeng/card';
+import { ProgressSpinnerModule } from 'primeng/progressspinner';
+import { RippleModule } from 'primeng/ripple';
 
 @NgModule({
   imports: [
     CommonModule,
+
+    TableModule,
+    DialogModule,
     DropdownModule,
     ButtonModule,
     InputTextModule,
-    TableModule,
-    DialogModule,
     ToastModule,
-    TooltipModule,
-    ConfirmDialogModule,
-    CalendarModule
+    CheckboxModule,
+    RadioButtonModule,
+    CardModule,
+    ProgressSpinnerModule,
+    RippleModule,
+
+
   ],
   exports: [
+    TableModule,
+    DialogModule,
     DropdownModule,
     ButtonModule,
     InputTextModule,
-    TableModule,
-    DialogModule,
     ToastModule,
-    TooltipModule,
-    ConfirmDialogModule,
-    CalendarModule
+    CheckboxModule,
+    RadioButtonModule,
+    CardModule,
+    ProgressSpinnerModule,
+    RippleModule,
   ]
 })
 export class PrimeNgModule {}
