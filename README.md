@@ -128,3 +128,31 @@ if you want to put custom templates on drop down
 </app-dropdown>
 
 ```
+
+### text input component  
+
+basic component 
+```html 
+<app-input-text
+  [(text)]="inputtext"
+></app-input-text>
+```
+
+float label component  
+```html 
+<app-input-text
+  [(text)]="inputtext"
+  [label]="floatlabel"
+></app-input-text>
+```
+
+icon component  
+```html 
+<app-input-text
+  [(text)]="inputtext"
+  [iconName]="iconName"
+  [iconSide]="iconSide"
+></app-input-text>
+```
+
+

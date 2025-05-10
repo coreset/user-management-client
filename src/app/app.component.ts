@@ -36,4 +36,12 @@ export class AppComponent {
 
   selectedDropdownItem: any ;
 
+
+  // for input text component
+  inputtext: string = '';
+  floatlabel: string = 'testing float';
+
+  iconName: string = 'search';
+  iconSide: string = 'right'
+
 }

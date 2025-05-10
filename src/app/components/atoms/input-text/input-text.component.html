@@ -1,1 +1,23 @@
-<p>input-text works!</p>
+<ng-container *ngIf="!label && !iconName">
+  <input
+    type="text"
+    pInputText
+    [(ngModel)]="text"
+    placeholder="placeholder"
+  />
+</ng-container>
+
+<ng-container *ngIf="label">
+  <span class="p-float-label" style="display: inline;">
+      <input id="float-input" type="text" pInputText [(ngModel)]="text"  placeholder="placeholder">
+      <label for="float-input">{{label}}</label>
+  </span>
+</ng-container>
+
+<ng-container *ngIf="iconName">
+  <span class="p-input-icon-{{iconSide}}">
+    <i class="pi pi-{{iconName}}"></i>
+    <input type="text" pInputText [(ngModel)]="text" placeholder="placeholder">
+  </span>
+</ng-container>
+
