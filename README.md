@@ -96,3 +96,35 @@ $ ng generate module components/atoms/atoms --flat
   // group checkbox  
   selectedValues: string[] = ["val2"];
 ```
+
+### Dropdown component  
+
+basic dropdown   
+```html 
+<app-dropdown
+  [items]="dropdownItems"
+  [(selected)]="selectedDropdownItem"
+>
+</app-dropdown>
+```
+
+if you want to put custom templates on drop down  
+```html 
+<app-dropdown
+  [items]="dropdownItems"
+  [(selected)]="selectedDropdownItem"
+  placeholder="select a city"
+  [showClear]="true"
+>
+
+  <ng-template #selectedItem let-city>
+    <div style="font-weight: bold;">🏙️ {{ city.name }}</div>
+  </ng-template>
+
+  <ng-template #item let-city>
+    <div style="color: steelblue;">📍 {{ city.name }} ({{ city.code }})</div>
+  </ng-template>
+
+</app-dropdown>
+
+```

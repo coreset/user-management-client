@@ -1,0 +1,9 @@
+:host ::ng-deep {
+  .p-dropdown {
+    min-width: 15rem; /* PrimeNG default width */
+
+    .p-dropdown-label {
+      padding: 0.5rem 0.75rem; /* Ensure proper padding */
+    }
+  }
+}

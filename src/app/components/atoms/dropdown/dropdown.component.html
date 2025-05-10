@@ -1,1 +1,18 @@
-<p>dropdown works!</p>
+<p-dropdown
+  [placeholder]="placeholder"
+  [options]="items"
+  [(ngModel)]="selected"
+  optionLabel="name"
+  [showClear]="showClear"
+  [filter]="filter"
+>
+  <ng-template *ngIf="selectedItemTemplate" pTemplate="selectedItem" let-item>
+    <ng-container *ngTemplateOutlet="selectedItemTemplate; context: { $implicit: item }"></ng-container>
+  </ng-template>
+
+  <ng-template *ngIf="itemTemplate" pTemplate="item" let-item>
+    <ng-container *ngTemplateOutlet="itemTemplate; context: { $implicit: item }"></ng-container>
+  </ng-template>
+
+</p-dropdown>
+
