@@ -3,13 +3,21 @@
     type="text"
     pInputText
     [(ngModel)]="text"
-    placeholder="placeholder"
+    [placeholder]="placeholder"
+    [ngClass]="inputClass"
   />
 </ng-container>
 
 <ng-container *ngIf="label">
   <span class="p-float-label" style="display: inline;">
-      <input id="float-input" type="text" pInputText [(ngModel)]="text"  placeholder="placeholder">
+      <input
+        id="float-input"
+        type="text"
+        pInputText
+        [(ngModel)]="text"
+        [placeholder]="placeholder"
+        [ngClass]="inputClass"
+      >
       <label for="float-input">{{label}}</label>
   </span>
 </ng-container>
@@ -17,7 +25,13 @@
 <ng-container *ngIf="iconName">
   <span class="p-input-icon-{{iconSide}}">
     <i class="pi pi-{{iconName}}"></i>
-    <input type="text" pInputText [(ngModel)]="text" placeholder="placeholder">
+    <input
+      type="text"
+      pInputText
+      [(ngModel)]="text"
+      [placeholder]="placeholder"
+      [ngClass]="inputClass"
+    >
   </span>
 </ng-container>
 

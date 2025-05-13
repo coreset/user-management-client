@@ -8,6 +8,7 @@ import { Component, Input, Output, EventEmitter } from '@angular/core';
 export class InputTextComponent {
 
  @Input() placeholder: string = '';
+ @Input() inputClass: string = '';
  private _text: string = '';
  @Input()
  get text() {

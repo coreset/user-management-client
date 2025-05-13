@@ -1,3 +1,4 @@
+import { HTTP_INTERCEPTORS } from '@angular/common/http';
 import { NgModule } from '@angular/core';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { BrowserModule } from '@angular/platform-browser';
@@ -6,11 +7,12 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { AtomsModule } from './components/atoms/atoms.module';
-import { PrimeNgModule } from './shared/modules/primeng.module';
+import { AuthInterceptor } from './core/interceptors/auth.interceptor';
+import { PagesModule } from './pages/pages.module';
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
   ],
   imports: [
     BrowserAnimationsModule,
@@ -19,9 +21,16 @@ import { PrimeNgModule } from './shared/modules/primeng.module';
     ReactiveFormsModule,
     FormsModule,
     AtomsModule,
-    PrimeNgModule
+
+    PagesModule,
   ],
-  providers: [],
+  providers: [
+    {
+      provide: HTTP_INTERCEPTORS,
+      useClass: AuthInterceptor,
+      multi: true
+    }
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

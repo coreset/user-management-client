@@ -12,6 +12,7 @@ import { CardComponent } from './card/card.component';
 import { ProgressSpinnerComponent } from './progress-spinner/progress-spinner.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { PrimeNgModule } from 'src/app/shared/modules/primeng.module';
+import { InputFieldComponent } from './input-field/input-field.component';
 
 
 
@@ -26,7 +27,8 @@ import { PrimeNgModule } from 'src/app/shared/modules/primeng.module';
     CheckboxComponent,
     RadioButtonComponent,
     CardComponent,
-    ProgressSpinnerComponent
+    ProgressSpinnerComponent,
+    InputFieldComponent
   ],
   imports: [
     CommonModule,
@@ -45,7 +47,8 @@ import { PrimeNgModule } from 'src/app/shared/modules/primeng.module';
     CheckboxComponent,
     RadioButtonComponent,
     CardComponent,
-    ProgressSpinnerComponent
+    ProgressSpinnerComponent,
+    InputFieldComponent
   ]
 })
 export class AtomsModule { }

@@ -1,41 +1,4 @@
 
-<!--<p-dropdown [options]="cities" [(ngModel)]="selectedCity" optionLabel="name"></p-dropdown>-->
-
-  <app-button   label="click" [styleClass]="'p-button-sm p-button'" [onClick]="handleClick" ></app-button>
 
 <router-outlet></router-outlet>
-
-<app-card>
-  <app-checkbox [(checked)]="checkboxvalue"  label="tested"></app-checkbox>
-
-  <app-checkbox name="groupname" value="val2" label="value 2" [(checked)]="selectedValues" ></app-checkbox>
-  <app-checkbox name="groupname" value="val1" label="value 1" [(checked)]="selectedValues" ></app-checkbox>
-  <!--<app-checkbox name="groupname" value="val2" label="value 2"  ></app-checkbox>-->
-</app-card>
-
-<h2>checked value in top level : {{checkboxvalue}}</h2>
-<h2>group checked box {{selectedValues | json}}</h2>
-
-<app-dropdown
-  [items]="dropdownItems"
-  [(selected)]="selectedDropdownItem"
-  placeholder="select a city"
-  [showClear]="true"
->
-
-  <ng-template #selectedItem let-city>
-    <div style="font-weight: bold;">🏙️ {{ city.name }}</div>
-  </ng-template>
-
-  <ng-template #item let-city>
-    <div style="color: steelblue;">📍 {{ city.name }} ({{ city.code }})</div>
-  </ng-template>
-</app-dropdown>
-
-
-<app-input-text
-  [(text)]="inputtext"
-  [iconName]="iconName"
-  [iconSide]="iconSide"
-></app-input-text>
 

@@ -1,0 +1,21 @@
+<div class="mb-3">
+  <label *ngIf="label" class="form-label">{{ label }}</label>
+  <input
+    [type]="type"
+    class="form-control"
+    [class.is-invalid]="shouldShowError()"
+    [placeholder]="placeholder"
+    [value]="value"
+    (input)="onInputChange($event)"
+    (blur)="markAsTouched()"
+    [disabled]="disabled"
+    [readonly]="readonly"
+    [min]="min"
+    [max]="max"
+    [attr.minlength]="minLength"
+    [attr.maxlength]="maxLength"
+  >
+  <div *ngIf="shouldShowError()" class="invalid-feedback">
+    <div *ngFor="let error of getErrors()">{{ getErrorMessage(error) }}</div>
+  </div>
+</div>

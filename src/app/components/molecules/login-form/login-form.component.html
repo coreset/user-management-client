@@ -1,0 +1,44 @@
+<form [formGroup]="loginForm" (submit)="onSubmit()">
+
+  <app-input-field
+    label="Email"
+    type="email"
+    formControlName="username"
+    [control]="loginForm.get('username')"
+    [required]="true"
+    [errorMessages]="{
+      required: 'Email is required',
+      pattern: 'Invalid email format'
+    }"
+  ></app-input-field>
+
+  <app-input-field
+    label="Password"
+    type="password"
+    formControlName="password"
+    [control]="loginForm.get('password')"
+    [required]="true"
+    [minLength]="3"
+    [maxLength]="20"
+    [errorMessages]="{
+      required: 'Password is required',
+      minlength: 'Must be at least 3 characters'
+    }"
+  ></app-input-field>
+
+  <!--<app-input-field-->
+  <!--  label="Age"-->
+  <!--  type="number"-->
+  <!--  formControlName="age"-->
+  <!--  [control]="loginForm.get('age')"-->
+  <!--  [min]="18"-->
+  <!--  [max]="99"-->
+  <!--  [errorMessages]="{-->
+  <!--    min: 'Minimum age is 18',-->
+  <!--    max: 'Maximum age is 99'-->
+  <!--  }"-->
+  <!-- </app-input-field>-->
+
+  <button type="submit" class="btn btn-primary" [disabled]="loginForm.invalid">Submit</button>
+</form>
+
