@@ -4,13 +4,15 @@ import { LoginComponent } from './login/login.component';
 import { MoleculesModule } from '../components/molecules/molecules.module';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { HttpClient, HttpClientModule } from '@angular/common/http';
+import { LoginSuccessComponent } from './login-success/login-success.component';
 
 
 
 @NgModule({
   declarations: [
     LoginComponent,
-    DashboardComponent
+    DashboardComponent,
+    LoginSuccessComponent
   ],
   imports: [
     CommonModule,

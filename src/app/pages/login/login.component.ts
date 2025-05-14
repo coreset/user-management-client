@@ -40,4 +40,8 @@ export class LoginComponent implements OnInit {
 
   }
 
+  onGoogleLogin() {
+    window.location.href = 'http://localhost:3000/auth/google/login';
+  }
+
 }
