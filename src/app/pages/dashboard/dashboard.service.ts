@@ -19,7 +19,6 @@ export class DashboardService {
     return this.http.get(`${this.apiUrl}/auth`).pipe(
       tap((response: any) => {
         // Handle successful response (logging, data transformation, etc.)
-        //console.log('API Response:', response);
       }),
       catchError((error: any) => {
         // Handle errors (logging, user notification, etc.)
