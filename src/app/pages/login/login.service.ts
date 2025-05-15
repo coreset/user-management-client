@@ -27,12 +27,36 @@ export class LoginService {
     );
   }
 
+  signout(): Observable<any> {
+    return this.http.post(`${this.apiUrl}/auth/signout`, {}).pipe(
+      tap((res: any) => {
+        console.log("signout::", res.message);
+      })
+    );
+  }
+
+  signoutAll(): Observable<any> {
+    return this.http.post(`${this.apiUrl}/auth/signout/all`, {}).pipe(
+      tap((res: any) => {
+        console.log("signout all::", res.message);
+      })
+    );
+  }
+
   googleLogin(): Observable<any> {
     return this.http.get(`${this.apiUrl}/auth/google/login`).pipe(
       tap((res: any) => {
         this.storeTokens(res.token, res.refreshToken);
       })
     );
+  }
+
+  changePassword({oldPassword, newPassword}: {oldPassword:string, newPassword: string}): Observable<any> {
+    return this.http.put(`${this.apiUrl}/auth/change-password`, { oldPassword, newPassword }).pipe(
+      tap((res: any) => {
+        console.log("message", res.message);
+      })
+    )
   }
 
   private storeTokens(accessToken: string, refreshToken: string): void {

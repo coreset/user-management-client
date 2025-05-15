@@ -1,6 +1,11 @@
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 
+interface ILogin {
+  username: string;
+  password: string;
+}
+
 @Component({
   selector: 'app-login-form',
   templateUrl: './login-form.component.html',
@@ -16,7 +21,7 @@ export class LoginFormComponent implements OnInit {
   @Input() formErrors: { [key: string]: string } = {};
 
   // send form submit values to login page.
-  @Output() formSubmitted = new EventEmitter<{ username: string, password: string }>();
+  @Output() formSubmitted = new EventEmitter<ILogin>();
 
   loginForm: FormGroup;
 
@@ -29,8 +34,7 @@ export class LoginFormComponent implements OnInit {
 
   onSubmit() {
     if (this.loginForm.valid) {
-      console.log('Form submitted:', this.loginForm.value);
-      this.formSubmitted.emit(this.loginForm.value);
+      this.formSubmitted.emit(this.loginForm.value as ILogin);
     }
   }
 }

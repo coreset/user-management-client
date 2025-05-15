@@ -33,6 +33,37 @@ export class AuthInterceptor implements HttpInterceptor {
       return next.handle(request);
     }
 
+    // add refresh tokens for 'signout' and 'signout/all' requests.
+    if (request.url.includes('/auth/signout') || request.url.includes('/auth/signout/all')) {
+      const refreshToken = this.authService.getRefreshToken();
+
+      if (!refreshToken) {
+        // No refresh token found
+        this.authService.logout(); // redirect to login
+        // Show toast message if you use a notification service
+        return throwError(() => new Error("Refresh token not found"));
+      }
+
+      // use refresh token for signout
+      const authRequest = request.clone({
+        setHeaders: { Authorization: `Bearer ${refreshToken}` }
+      });
+
+      return next.handle(authRequest).pipe(
+        catchError((error: HttpErrorResponse) => {
+          if (error.status === 401) {
+            // if refresh token expired
+            //this.authService.logout(); // logout and redirect to login
+            return throwError(() => error);
+          } else {
+            // for other types of errors
+            return throwError(() => error);
+          }
+        })
+      );
+    }
+
+
     // Add access token by default
     const accessToken = this.authService.getAccessToken();
     const authRequest = accessToken

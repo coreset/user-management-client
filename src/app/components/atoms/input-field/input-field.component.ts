@@ -107,11 +107,12 @@ export class InputFieldComponent implements ControlValueAccessor, Validator {
     if (this.max !== null && control.value && parseFloat(control.value) > this.max) {
       errors.max = { max: this.max, actual: control.value };
     }
-    console.log("errors :::", errors);
+    console.log("errors :::", errors, this.minLength);
     return Object.keys(errors).length > 0 ? errors : null;
   }
 
   getErrors(): string[] {
+    console.log(">>>",this.control.errors ? Object.keys(this.control.errors) : []);
     return this.control.errors ? Object.keys(this.control.errors) : [];
   }
 

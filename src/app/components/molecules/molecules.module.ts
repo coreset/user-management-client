@@ -3,12 +3,14 @@ import { CommonModule } from '@angular/common';
 import { LoginFormComponent } from './login-form/login-form.component';
 import { ReactiveFormsModule } from '@angular/forms';
 import { AtomsModule } from '../atoms/atoms.module';
+import { ChangePasswordFormComponent } from './change-password-form/change-password-form.component';
 
 
 
 @NgModule({
   declarations: [
-    LoginFormComponent
+    LoginFormComponent,
+    ChangePasswordFormComponent
   ],
   imports: [
     CommonModule,
@@ -16,7 +18,8 @@ import { AtomsModule } from '../atoms/atoms.module';
     AtomsModule
   ],
   exports: [
-    LoginFormComponent
+    LoginFormComponent,
+    ChangePasswordFormComponent
   ]
 
 })
