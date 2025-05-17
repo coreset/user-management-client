@@ -28,13 +28,21 @@ export class AuthInterceptor implements HttpInterceptor {
   intercept(request: HttpRequest<any>, next: HttpHandler): Observable<HttpEvent<any>> {
 
     // skip adding token for following endpoints
-    if (request.url.includes('/auth/login')
-       || request.url.includes('/auth/refresh')) {
+    if (
+      request.url.includes('/auth/login')
+      || request.url.includes('/auth/refresh')
+      || request.url.includes('/reset-password')
+      || request.url.includes('/auth/validate-forgot-password')
+    ) {
+      console.log("pass without interceptor ...");
       return next.handle(request);
     }
 
     // add refresh tokens for 'signout' and 'signout/all' requests.
-    if (request.url.includes('/auth/signout') || request.url.includes('/auth/signout/all')) {
+    if (
+      request.url.includes('/auth/signout')
+      || request.url.includes('/auth/signout/all')
+    ) {
       const refreshToken = this.authService.getRefreshToken();
 
       if (!refreshToken) {

@@ -3,13 +3,17 @@ import { RouterModule, Routes } from '@angular/router';
 import { AuthGuard } from './core/guards/auth.guard';
 import { ChangePasswordComponent } from './pages/change-password/change-password.component';
 import { DashboardComponent } from './pages/dashboard/dashboard.component';
+import { ForgotPasswordComponent } from './pages/forgot-password/forgot-password.component';
 import { LoginSuccessComponent } from './pages/login-success/login-success.component';
 import { LoginComponent } from './pages/login/login.component';
+import { ResetPasswordComponent } from './pages/reset-password/reset-password.component';
 
 const routes: Routes = [
   { path: 'login', component: LoginComponent },
   { path: 'login-success', component: LoginSuccessComponent },
   { path: 'change-password', component: ChangePasswordComponent },
+  { path: 'forgot-password', component: ForgotPasswordComponent },
+  { path: 'reset-password', component: ResetPasswordComponent },
   { path: 'dashboard', component: DashboardComponent, canActivate: [AuthGuard] },
   //{ path: '', redirectTo: '/login', pathMatch: 'full' }
 ];

@@ -15,6 +15,8 @@ export class ChangePasswordFormComponent implements OnInit {
 
   @Input() loading: boolean = false;
   @Input() formErrors: { [key: string]: string } = {};
+  @Input() skipChangePassword: boolean = false;
+  @Output() skipChangePasswordChange = new EventEmitter<boolean>();
   @Output() formSubmitted = new EventEmitter<IChangePassword>();
 
   changePasswordForm: FormGroup;
@@ -52,6 +54,10 @@ export class ChangePasswordFormComponent implements OnInit {
       console.log("click on submit",this.changePasswordForm.valid, this.changePasswordForm.value);
       this.formSubmitted.emit(this.changePasswordForm.value as IChangePassword);
     }
+  }
+
+  onSkipChangePassword() {
+    this.skipChangePasswordChange.emit(true);
   }
 
   ngOnInit(): void {

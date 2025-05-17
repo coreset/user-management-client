@@ -59,6 +59,23 @@ export class LoginService {
     )
   }
 
+  forgotPassword(email: string): Observable<any> {
+    return this.http.post(`${this.apiUrl}/auth/forgot-password`, { email }).pipe(
+      tap((res: any) => {
+        console.log("message", res.message);
+      })
+    );
+  }
+
+  validateForgotPassword(token: string, userId: number): Observable<any> {
+    return this.http.post(`${this.apiUrl}/auth/validate-forgot-password`, { token, userId }).pipe(
+      tap((res: any) => {
+        this.storeTokens(res.token, res.refreshToken);
+        console.log("message", res.message);
+      })
+    );
+  }
+
   private storeTokens(accessToken: string, refreshToken: string): void {
     localStorage.setItem(ACCESS_TOKEN_KEY, accessToken);
     localStorage.setItem(REFRESH_TOKEN_KEY, refreshToken);

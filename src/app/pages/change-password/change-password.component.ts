@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { Router } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { LoginService } from '../login/login.service';
 
 interface IChangePassword {
@@ -16,10 +16,18 @@ export class ChangePasswordComponent implements OnInit {
 
   constructor(
     private readonly loginService: LoginService,
-    private readonly router: Router
+    private readonly router: Router,
+    private readonly route: ActivatedRoute,
   ) { }
 
+  skipChangePassword: boolean = false; // By default not showing skip change password button
+
+
   ngOnInit(): void {
+    // Get skip-change-password button if it is from reset password component
+    this.route.queryParams.subscribe(params => {
+      this.skipChangePassword = params['skipChangePassword'] === 'true';
+    })
   }
 
   isChangingPassword: boolean = false;
@@ -41,6 +49,13 @@ export class ChangePasswordComponent implements OnInit {
         console.log("Onchange Password error", err);
       }
     })
+  }
+
+  onSkipPasswordChangeDetected(value: boolean) {
+    console.log('Parent detected skip change value:', value);
+    this.router.navigate(['/dashboard']);
+
+    // Perform any logic you want
   }
 
 }
