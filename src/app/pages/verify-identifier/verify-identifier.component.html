@@ -1,0 +1,6 @@
+<app-verify-code-form
+  *ngIf="showVerifyCodeForm"
+  [email]="email"
+  (formSubmitted)="onVerifyCode($event)"
+>
+</app-verify-code-form>

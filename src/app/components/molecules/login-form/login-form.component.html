@@ -5,7 +5,6 @@
     type="email"
     formControlName="username"
     [control]="loginForm.get('username')"
-    [required]="true"
     [errorMessages]="{
       required: 'Email is required',
       pattern: 'Invalid email format'
@@ -17,9 +16,6 @@
     type="password"
     formControlName="password"
     [control]="loginForm.get('password')"
-    [required]="true"
-    [minLength]="3"
-    [maxLength]="20"
     [errorMessages]="{
       required: 'Password is required',
       minlength: 'Must be at least 3 characters'

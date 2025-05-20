@@ -1,0 +1,20 @@
+<div class="mb-3">
+  <label *ngIf="label" class="form-label">{{ label }}</label>
+  <div class="form-check" *ngFor="let option of options">
+    <input
+      class="form-check-input"
+      type="radio"
+      [value]="option.value"
+      [checked]="value === option.value"
+      [disabled]="disabled"
+      (change)="onSelect(option.value)"
+      (blur)="markAsTouched()"
+    />
+    <label class="form-check-label">
+      {{ option.label }}
+    </label>
+  </div>
+  <div *ngIf="shouldShowError()" class="invalid-feedback d-block">
+    <div *ngFor="let error of getErrors()">{{ getErrorMessage(error) }}</div>
+  </div>
+</div>

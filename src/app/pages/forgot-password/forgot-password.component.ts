@@ -1,5 +1,11 @@
 import { Component, OnInit } from '@angular/core';
 import { LoginService } from '../login/login.service';
+import { Router } from '@angular/router';
+
+enum NotifyType {
+  URL= 'url',
+  CODE= 'code',
+}
 
 @Component({
   selector: 'app-forgot-password',
@@ -14,22 +20,31 @@ export class ForgotPasswordComponent implements OnInit {
 
   constructor(
     private readonly loginService: LoginService,
+    private readonly router: Router,
   ) { }
 
   ngOnInit(): void {
   }
 
-  formSubmitted(email: string) {
-    this.onForgotPassword(email);
+  formSubmitted({email, type}: {email: string, type: NotifyType}) {
+    this.onForgotPassword(email, type);
   }
 
-  onForgotPassword(email: string) {
+  onForgotPassword(email: string, type: NotifyType) {
+    console.log("type:::", type);
     this.loading = true;
-    this.loginService.forgotPassword(email).subscribe({
+    this.loginService.forgotPassword(email, type).subscribe({
       next: () => {
         this.loading = false;
         this.successMessage = 'Reset link sent. Check your email.';
+        if (type === NotifyType.CODE) {
+          this.router.navigate(['/verify-identifier'], {
+                queryParams: { email , type }
+          });
+
+        }
         console.log(this.successMessage);
+
       },
       error: (err) => {
         this.loading = false;

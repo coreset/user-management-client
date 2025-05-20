@@ -59,16 +59,16 @@ export class LoginService {
     )
   }
 
-  forgotPassword(email: string): Observable<any> {
-    return this.http.post(`${this.apiUrl}/auth/forgot-password`, { email }).pipe(
+  forgotPassword(email: string, type: string): Observable<any> {
+    return this.http.post(`${this.apiUrl}/auth/forgot-password`, { email, type }).pipe(
       tap((res: any) => {
         console.log("message", res.message);
       })
     );
   }
 
-  validateForgotPassword(token: string, userId: number): Observable<any> {
-    return this.http.post(`${this.apiUrl}/auth/validate-forgot-password`, { token, userId }).pipe(
+  verifyIdentifier(token: string, user: number | string): Observable<any> {
+    return this.http.post(`${this.apiUrl}/auth/verify-identifier`, { token, user }).pipe(
       tap((res: any) => {
         this.storeTokens(res.token, res.refreshToken);
         console.log("message", res.message);

@@ -31,10 +31,10 @@ export class AuthInterceptor implements HttpInterceptor {
     if (
       request.url.includes('/auth/login')
       || request.url.includes('/auth/refresh')
-      || request.url.includes('/reset-password')
-      || request.url.includes('/auth/validate-forgot-password')
+      || request.url.includes('/auth/forgot-password')
+      || request.url.includes('/auth/verify-identifier')
     ) {
-      console.log("pass without interceptor ...");
+      console.log("pass without interceptor ...", request.url);
       return next.handle(request);
     }
 

@@ -1,0 +1,27 @@
+<form [formGroup]="verifyCodeForm" (submit)="onSubmit()">
+
+  <app-input-field
+    label="Email"
+    type="email"
+    formControlName="email"
+    [control]="verifyCodeForm.get('email')"
+    [disabled]="false"
+    [errorMessages]="{
+      required: 'Email is required',
+      pattern: 'Invalid email format'
+    }"
+  ></app-input-field>
+
+  <app-input-field
+    label="CODE"
+    type="text"
+    formControlName="code"
+    [control]="verifyCodeForm.get('code')"
+    [errorMessages]="{
+      required: 'Code is required'
+    }"
+  ></app-input-field>
+
+  <button type="submit" class="btn btn-primary" [disabled]="verifyCodeForm.invalid">Verify</button>
+</form>
+

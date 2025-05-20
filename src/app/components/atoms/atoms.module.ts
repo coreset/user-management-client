@@ -13,6 +13,7 @@ import { ProgressSpinnerComponent } from './progress-spinner/progress-spinner.co
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { PrimeNgModule } from 'src/app/shared/modules/primeng.module';
 import { InputFieldComponent } from './input-field/input-field.component';
+import { RadioFieldComponent } from './radio-field/radio-field.component';
 
 
 
@@ -28,7 +29,8 @@ import { InputFieldComponent } from './input-field/input-field.component';
     RadioButtonComponent,
     CardComponent,
     ProgressSpinnerComponent,
-    InputFieldComponent
+    InputFieldComponent,
+    RadioFieldComponent,
   ],
   imports: [
     CommonModule,
@@ -48,7 +50,8 @@ import { InputFieldComponent } from './input-field/input-field.component';
     RadioButtonComponent,
     CardComponent,
     ProgressSpinnerComponent,
-    InputFieldComponent
+    InputFieldComponent,
+    RadioFieldComponent,
   ]
 })
 export class AtomsModule { }

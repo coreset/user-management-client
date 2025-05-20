@@ -1,3 +1,16 @@
+/**
+ * ChangePasswordComponent
+ * ----------------------
+ * This component is responsible for displaying and editing change password information form.
+ *
+ * Used in:
+ * - Router
+ *
+ * Use for:
+ * display "ChangePasswordFormComponent" as page.
+ * when child form submitted here call change password api
+ */
+
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { LoginService } from '../login/login.service';
@@ -52,10 +65,7 @@ export class ChangePasswordComponent implements OnInit {
   }
 
   onSkipPasswordChangeDetected(value: boolean) {
-    console.log('Parent detected skip change value:', value);
     this.router.navigate(['/dashboard']);
-
-    // Perform any logic you want
   }
 
 }
