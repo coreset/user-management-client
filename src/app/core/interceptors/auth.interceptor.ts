@@ -13,7 +13,7 @@ import {
   switchMap,
   take
 } from 'rxjs/operators';
-import { LoginService } from 'src/app/pages/login/login.service';
+import { AuthService } from 'src/app/pages/auth/auth.service';
 
 @Injectable()
 export class AuthInterceptor implements HttpInterceptor {
@@ -22,7 +22,7 @@ export class AuthInterceptor implements HttpInterceptor {
   private refreshTokenSubject = new BehaviorSubject<string | null>(null);
 
   constructor(
-    private readonly authService: LoginService,
+    private readonly authService: AuthService,
   ){}
 
   intercept(request: HttpRequest<any>, next: HttpHandler): Observable<HttpEvent<any>> {

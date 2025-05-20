@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
-import { LoginService } from '../login/login.service';
+import { AuthService } from '../auth.service';
 
 @Component({
   selector: 'app-login-success',
@@ -12,7 +12,7 @@ export class LoginSuccessComponent implements OnInit {
   constructor(
     private readonly route: ActivatedRoute,
     private readonly router: Router,
-    private readonly loginService: LoginService
+    private readonly authService: AuthService,
   ) { }
 
   ngOnInit(): void {
@@ -20,8 +20,8 @@ export class LoginSuccessComponent implements OnInit {
       const accessToken = params['token'];
       const refreshToken = params['refreshToken'];
       if (accessToken && refreshToken) {
-        this.loginService.setAccessToken(accessToken);
-        this.loginService.setRefreshToken(refreshToken);
+        this.authService.setAccessToken(accessToken);
+        this.authService.setRefreshToken(refreshToken);
         this.router.navigate(['/dashboard']);
       } else {
         console.log("Issue :", "accessToken and refreshToken not received !" );

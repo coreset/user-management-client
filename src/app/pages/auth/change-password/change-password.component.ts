@@ -13,7 +13,7 @@
 
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
-import { LoginService } from '../login/login.service';
+import { AuthService } from '../auth.service';
 
 interface IChangePassword {
   oldPassword: string;
@@ -28,7 +28,7 @@ interface IChangePassword {
 export class ChangePasswordComponent implements OnInit {
 
   constructor(
-    private readonly loginService: LoginService,
+    private readonly authService: AuthService,
     private readonly router: Router,
     private readonly route: ActivatedRoute,
   ) { }
@@ -53,7 +53,7 @@ export class ChangePasswordComponent implements OnInit {
   }
 
   onChangePassword(value: IChangePassword):void {
-    this.loginService.changePassword(value).subscribe({
+    this.authService.changePassword(value).subscribe({
       next: (res: any) => {
         console.log("Onchange Password Change:", res.message);
         this.router.navigate(['/dashboard']);

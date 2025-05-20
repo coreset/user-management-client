@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { LoginService } from '../login/login.service';
 import { Router } from '@angular/router';
+import { AuthService } from '../auth.service';
 
 enum NotifyType {
   URL= 'url',
@@ -19,7 +19,7 @@ export class ForgotPasswordComponent implements OnInit {
   public errorMessage: string = '';
 
   constructor(
-    private readonly loginService: LoginService,
+    private readonly authService: AuthService,
     private readonly router: Router,
   ) { }
 
@@ -33,7 +33,7 @@ export class ForgotPasswordComponent implements OnInit {
   onForgotPassword(email: string, type: NotifyType) {
     console.log("type:::", type);
     this.loading = true;
-    this.loginService.forgotPassword(email, type).subscribe({
+    this.authService.forgotPassword(email, type).subscribe({
       next: () => {
         this.loading = false;
         this.successMessage = 'Reset link sent. Check your email.';

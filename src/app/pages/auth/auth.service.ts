@@ -8,12 +8,9 @@ import { ACCESS_TOKEN_KEY, REFRESH_TOKEN_KEY } from 'src/app/shared/utils/consta
 @Injectable({
   providedIn: 'root'
 })
-export class LoginService {
+export class AuthService {
 
   private apiUrl = environment.apiUrl;
-  // need to remove
-  //private accessTokenKey = 'access_token';
-  //private refreshTokenKey = 'refresh_token';
 
   constructor(
     private readonly http: HttpClient,

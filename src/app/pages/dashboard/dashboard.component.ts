@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-import { LoginService } from '../login/login.service';
+import { AuthService } from '../auth/auth.service';
 import { DashboardService } from './dashboard.service';
 
 @Component({
@@ -12,7 +12,7 @@ export class DashboardComponent implements OnInit {
 
   constructor(
     private readonly dashboardService: DashboardService,
-    private readonly loginService: LoginService,
+    private readonly authService: AuthService,
     private readonly router: Router,
   ) { }
 
@@ -33,15 +33,15 @@ export class DashboardComponent implements OnInit {
   }
 
   handleSignout() {
-    this.loginService.signout().subscribe({
+    this.authService.signout().subscribe({
       next: (res: any) => {
         console.log('Signout Message:', res.message);
-        this.loginService.logout();
+        this.authService.logout();
         this.router.navigate(['/login']);
       },
       error: (err) => {
         if(err.status === 401) {
-          this.loginService.logout();
+          this.authService.logout();
           this.router.navigate(['/login']);
         } else {
           console.log("Something went wrong !");
@@ -53,15 +53,15 @@ export class DashboardComponent implements OnInit {
 
 
   handleSignoutAll() {
-    this.loginService.signoutAll().subscribe({
+    this.authService.signoutAll().subscribe({
       next: (res: any) => {
         console.log('Signout All Message:', res.message);
-        this.loginService.logout();
+        this.authService.logout();
         this.router.navigate(['/login']);
       },
       error: (err) => {
         if(err.status === 401) {
-          this.loginService.logout();
+          this.authService.logout();
           this.router.navigate(['/login']);
         } else {
           console.log("Something went wrong !");

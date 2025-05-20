@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
-import { LoginService } from '../login/login.service';
-
+import { AuthService } from '../auth.service';
 
 interface IVerifyCodeForm {
   code: string;
@@ -18,7 +17,7 @@ export class VerifyIdentifierComponent implements OnInit {
   constructor(
     private readonly route: ActivatedRoute,
     private readonly router: Router,
-    private readonly loginService: LoginService
+    private readonly authService: AuthService,
   ) { }
 
   skipChangePassword: boolean = true;
@@ -43,7 +42,7 @@ export class VerifyIdentifierComponent implements OnInit {
 
       if (resetToken && userId) {
         // call api that get for accessToken and refreshToken
-        this.loginService.verifyIdentifier(resetToken, userId).subscribe({
+        this.authService.verifyIdentifier(resetToken, userId).subscribe({
           next: (res: any) => {
             this.router.navigate(['/change-password'], {
               queryParams: { skipChangePassword: this.skipChangePassword }
@@ -67,7 +66,7 @@ export class VerifyIdentifierComponent implements OnInit {
 
   onVerifyCode (values: IVerifyCodeForm ) {
     console.log("values ::", values);
-    this.loginService.verifyIdentifier(values.code, values.email).subscribe({
+    this.authService.verifyIdentifier(values.code, values.email).subscribe({
       next: (res: any) => {
         this.router.navigate(['/change-password'], {
           queryParams: { skipChangePassword: this.skipChangePassword }

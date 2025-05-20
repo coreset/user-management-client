@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-import { LoginService } from './login.service';
+import { AuthService } from '../auth.service';
 
 interface ILoginForm {
   username: string;
@@ -18,7 +18,7 @@ export class LoginComponent implements OnInit {
   }
 
   constructor(
-   private readonly loginService: LoginService,
+   private readonly authService: AuthService,
    private readonly router: Router,
   ){}
 
@@ -28,7 +28,7 @@ export class LoginComponent implements OnInit {
   }
 
   onLogin({username, password}: ILoginForm) {
-    this.loginService.login(username, password).subscribe({
+    this.authService.login(username, password).subscribe({
       next: () => {
         console.log('Login successfull');
         this.router.navigate(['/dashboard']);

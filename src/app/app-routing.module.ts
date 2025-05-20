@@ -1,12 +1,12 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { AuthGuard } from './core/guards/auth.guard';
-import { ChangePasswordComponent } from './pages/change-password/change-password.component';
+import { ChangePasswordComponent } from './pages/auth/change-password/change-password.component';
 import { DashboardComponent } from './pages/dashboard/dashboard.component';
-import { ForgotPasswordComponent } from './pages/forgot-password/forgot-password.component';
-import { LoginSuccessComponent } from './pages/login-success/login-success.component';
-import { LoginComponent } from './pages/login/login.component';
-import { VerifyIdentifierComponent } from './pages/verify-identifier/verify-identifier.component';
+import { ForgotPasswordComponent } from './pages/auth/forgot-password/forgot-password.component';
+import { LoginSuccessComponent } from './pages/auth/login-success/login-success.component';
+import { LoginComponent } from './pages/auth/login/login.component';
+import { VerifyIdentifierComponent } from './pages/auth/verify-identifier/verify-identifier.component';
 
 const routes: Routes = [
   { path: 'login', component: LoginComponent },
