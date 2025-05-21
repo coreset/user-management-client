@@ -1,1 +1,8 @@
-<p>register works!</p>
+<app-register-form
+  [loading]="loading"
+  (formSubmitted)="formSubmitted($event)"
+  [formError]="formError"
+  (formErrorChange)="formErrorChange($event)"
+  >
+
+</app-register-form>

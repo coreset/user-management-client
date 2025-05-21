@@ -5,6 +5,14 @@ import { tap } from 'rxjs/operators';
 import { environment } from 'src/environments/environment';
 import { ACCESS_TOKEN_KEY, REFRESH_TOKEN_KEY } from 'src/app/shared/utils/constants/auth.constants';
 
+
+interface IRegisterForm {
+  firstName: string;
+  lastName: string;
+  email: string;
+  password: string;
+}
+
 @Injectable({
   providedIn: 'root'
 })
@@ -30,6 +38,14 @@ export class AuthService {
         console.log("signout::", res.message);
       })
     );
+  }
+
+  signup(form: IRegisterForm): Observable<any> {
+    return this.http.post(`${this.apiUrl}/users`, form).pipe(
+      tap((res: any) => {
+        console.log('signup ::', res.message);
+      })
+    )
   }
 
   signoutAll(): Observable<any> {

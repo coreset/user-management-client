@@ -6,6 +6,7 @@ import { AtomsModule } from '../atoms/atoms.module';
 import { ChangePasswordFormComponent } from './change-password-form/change-password-form.component';
 import { ForgotPasswordFormComponent } from './forgot-password-form/forgot-password-form.component';
 import { VerifyCodeFormComponent } from './verify-code-form/verify-code-form.component';
+import { RegisterFormComponent } from './register-form/register-form.component';
 
 @NgModule({
   declarations: [
@@ -13,6 +14,7 @@ import { VerifyCodeFormComponent } from './verify-code-form/verify-code-form.com
     ChangePasswordFormComponent,
     ForgotPasswordFormComponent,
     VerifyCodeFormComponent,
+    RegisterFormComponent,
   ],
   imports: [
     CommonModule,
@@ -24,6 +26,7 @@ import { VerifyCodeFormComponent } from './verify-code-form/verify-code-form.com
     ChangePasswordFormComponent,
     ForgotPasswordFormComponent,
     VerifyCodeFormComponent,
+    RegisterFormComponent,
   ]
 
 })

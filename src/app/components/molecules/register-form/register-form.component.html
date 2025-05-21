@@ -1,0 +1,70 @@
+
+<form [formGroup]="registerForm" (submit)="onSubmit()">
+
+  <app-input-field
+    label="First Name"
+    type="text"
+    formControlName="firstName"
+    [control]="registerForm.get('firstName')"
+    [errorMessages]="{
+      required: 'First Name is required',
+      pattern: 'Invalid text format for a Name'
+    }"
+  ></app-input-field>
+
+  <app-input-field
+    label="Last Name"
+    type="text"
+    formControlName="lastName"
+    [control]="registerForm.get('lastName')"
+    [errorMessages]="{
+      required: 'Last Name is required',
+      pattern: 'Invalid text format for a Name',
+      minlength: 'Must be at least 3 characters',
+      maxlength: 'Must be less than 20 charactors'
+    }"
+  ></app-input-field>
+
+  <app-input-field
+    label="Email"
+    type="email"
+    formControlName="email"
+    [control]="registerForm.get('email')"
+    [errorMessages]="{
+      required: 'Email is required',
+      pattern: 'Invalid email format',
+      minlength: 'Must be at least 3 characters',
+      maxlength: 'Must be less than 20 charactors'
+    }"
+  ></app-input-field>
+
+  <app-input-field
+    label="Password"
+    type="password"
+    formControlName="password"
+    [control]="registerForm.get('password')"
+    [errorMessages]="{
+      required: 'Password is required',
+      minlength: 'Must be at least 3 characters',
+      maxlength: 'Must be less than 20 charactors'
+    }"
+  ></app-input-field>
+
+  <app-input-field
+    label="Confirm Password"
+    type="password"
+    formControlName="confirmPassword"
+    [control]="registerForm.get('confirmPassword')"
+    [required]="true"
+    [errorMessages]="{
+      required: 'Confirm your password',
+      passwordMismatch: 'Password do not match'
+    }"
+  ></app-input-field>
+
+  <div *ngIf="formError">
+    {{formError}}
+  </div>
+
+  <button type="submit" class="btn btn-primary" [disabled]="registerForm.invalid || loading">SignUp</button>
+</form>
